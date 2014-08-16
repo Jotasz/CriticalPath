@@ -19,7 +19,9 @@ public class CriticalPath {
         SecaoCritica sc = new SecaoCritica(1000);
         /*Aqui tenho que criar algumas threads*/
         ThreadCriticalSection t1 = new ThreadCriticalSection(sc);
+        t1.setName("t1");
         ThreadCriticalSection t2 = new ThreadCriticalSection(sc);
+        t2.setName("t2");
         t1.start();
         t2.start();
         /*Medir o tempo de execução de cada thread.*/
