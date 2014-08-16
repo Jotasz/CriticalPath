@@ -16,7 +16,13 @@ public class CriticalPath {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        SecaoCritica sc = new SecaoCritica(1000);
+        /*Aqui tenho que criar algumas threads*/
+        ThreadCriticalSection t1 = new ThreadCriticalSection(sc);
+        ThreadCriticalSection t2 = new ThreadCriticalSection(sc);
+        t1.start();
+        t2.start();
+        /*Medir o tempo de execução de cada thread.*/
     }
     
 }
