@@ -18,7 +18,7 @@ public class SecaoCritica {
         this.size = size;
     }
     
-    public synchronized void csec(){
+    public synchronized void fastcsec(){
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
                 foo++;
@@ -26,4 +26,18 @@ public class SecaoCritica {
             }
         }
     }    
+    
+    public synchronized void slowcsec(){
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j++){
+                foo++;
+                try {
+                    Thread.sleep(1);
+                } catch (InterruptedException ex) {
+                    System.out.println("OK.");
+                }
+                foo--;
+            }
+        }
+    }
 }
