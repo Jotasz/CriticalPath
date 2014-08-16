@@ -23,7 +23,8 @@ public class ThreadCriticalSection extends Thread {
     public void run(){
         Calendar cal = Calendar.getInstance();
         inicio = cal.getTimeInMillis();
-        sc.csec();
+        sc.slowcsec();
+        //sc.fastcsec();
         fim = cal.getTimeInMillis();
         System.out.println(Thread.currentThread().getName()+" Demorou "+(fim-inicio)+""
                 + " Milissegundos para executar");
