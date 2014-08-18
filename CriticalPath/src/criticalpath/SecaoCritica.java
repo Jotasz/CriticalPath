@@ -26,7 +26,7 @@ public class SecaoCritica {
             System.out.println(Thread.currentThread().getName()+" Demorou "+(fim-inicio)+""
                 + " Milissegundos para executar");
         } catch (InterruptedException ex) {
-            System.out.println("OK.");
+            System.out.println("Thread interrompida.");
         }
         count -= 2;
     }
@@ -40,7 +40,7 @@ public class SecaoCritica {
             System.out.println(Thread.currentThread().getName()+" Demorou "+(fim-inicio)+""
                 + " Milissegundos para executar");
         } catch (InterruptedException ex) {
-            System.out.println("OK.");
+            System.out.println("Thread interrompida.");
         }
     }
 }
