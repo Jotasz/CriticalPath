@@ -6,7 +6,6 @@
 
 package criticalpath;
 
-import java.util.Calendar;
 
 /**
  *
@@ -21,12 +20,7 @@ public class ThreadCriticalSection extends Thread {
     }
     @Override
     public void run(){
-        Calendar cal = Calendar.getInstance();
-        inicio = cal.getTimeInMillis();
-        sc.slowcsec();
-        //sc.fastcsec();
-        fim = cal.getTimeInMillis();
-        System.out.println(Thread.currentThread().getName()+" Demorou "+(fim-inicio)+""
-                + " Milissegundos para executar");
+        sc.fastcsec();
+        //sc.slowcsec();
     }
 }

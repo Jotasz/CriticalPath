@@ -6,6 +6,8 @@
 
 package criticalpath;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Julio
@@ -16,14 +18,13 @@ public class CriticalPath {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        SecaoCritica sc = new SecaoCritica(1000);
+        ArrayList<ThreadCriticalSection> threadGroup = new ArrayList();
+        SecaoCritica sc = new SecaoCritica(10);
         /*Aqui tenho que criar algumas threads*/
-        ThreadCriticalSection t1 = new ThreadCriticalSection(sc);
-        t1.setName("t1");
-        ThreadCriticalSection t2 = new ThreadCriticalSection(sc);
-        t2.setName("t2");
-        t1.start();
-        t2.start();
+        for(int i = 0; i < 50; i++){
+            threadGroup.add(new ThreadCriticalSection(sc));
+            threadGroup.get(i).start();
+        }
         /*Medir o tempo de execução de cada thread.*/
     }
     

@@ -12,32 +12,35 @@ package criticalpath;
  */
 public class SecaoCritica {
     public int size;
-    public int foo;
+    public int count = 100;
     
     public SecaoCritica(int size){
         this.size = size;
     }
     
     public synchronized void fastcsec(){
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-                foo++;
-                foo--;
-            }
+        try {
+            long inicio = System.nanoTime()/1000000;
+            Thread.sleep(200-count);
+            long fim = System.nanoTime()/1000000;
+            System.out.println(Thread.currentThread().getName()+" Demorou "+(fim-inicio)+""
+                + " Milissegundos para executar");
+        } catch (InterruptedException ex) {
+            System.out.println("OK.");
         }
-    }    
+        count -= 2;
+    }
+    
     
     public synchronized void slowcsec(){
-        for(int i = 0; i < size; i++){
-            for(int j = 0; j < size; j++){
-                foo++;
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException ex) {
-                    System.out.println("OK.");
-                }
-                foo--;
-            }
+        try {
+            long inicio = System.nanoTime()/1000000;
+            Thread.sleep(200);
+            long fim = System.nanoTime()/1000000;
+            System.out.println(Thread.currentThread().getName()+" Demorou "+(fim-inicio)+""
+                + " Milissegundos para executar");
+        } catch (InterruptedException ex) {
+            System.out.println("OK.");
         }
     }
 }
